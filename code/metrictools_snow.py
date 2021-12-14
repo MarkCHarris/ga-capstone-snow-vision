@@ -8,6 +8,11 @@ from sklearn.metrics import classification_report, roc_auc_score, RocCurveDispla
 
 def check_metrics(train_preds, test_preds, y_train, y_test, cat_0, cat_1):
     
+    """
+    This function accepts true and predicted values for training and testing datasets.
+    It then displays several key classification metrics labeled according to the two categories provided.
+    """
+    
     print('Train Data Metrics:\n')
     print(classification_report(y_train, train_preds, target_names=[cat_0, cat_1], digits=4))
     print(f'ROC AUC score: {roc_auc_score(y_train, train_preds)}')

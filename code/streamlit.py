@@ -44,18 +44,16 @@ def predict_and_show(image_bytes, snow_cutoff):
     image_array = image_array[np.newaxis, :]
 
     # Load the trained model.
-    model = load_model(f'../saved_models/test1')
+    model = load_model(f'../saved_models/model2')
 
     # Use trained model to predict presence or absence of snow.
     prediction = model.predict(image_array)[0][0]
-
-    st.write(prediction) # **** REMOVE THIS
     
     # Display the prediciton.
     if prediction < snow_cutoff:
-        st.write('The neural net has decided it is: not snowing.')
+        st.write('The neural net has decided it is: NOT SNOWING')
     else:
-        st.write('The neural net has decided it is: snowing.')
+        st.write('The neural net has decided it is: SNOWING')
 
     # Display the uploaded image under the prediction.
     st.image(image_raw)
@@ -70,7 +68,7 @@ def main():
     st.write('Also see my [portfolio](https://markcharris.github.io).')
     st.write('The data used to train this neural net is from [here](https://sites.google.com/view/yunfuliu/desnownet).')
     
-    snow_cutoff = 0.5
+    snow_cutoff = 0.55
     
     # Prompt user to upload an image and return it.
     image_bytes = read_file()
