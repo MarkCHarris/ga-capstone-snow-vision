@@ -44,9 +44,31 @@ The data can be found [here](https://sites.google.com/view/yunfuliu/desnownet). 
 
 At the above website, click the link "Training set."  Save the ground truth (gt) images in the clear folder and the synthetic images in the snow folder.
 
-### Data Exploration ###
+### Data Preprocessing ###
 
-### Classficiation ###
+Before the images could be used to fit the neural nets, several preprocessing steps were necessary.
+- Import the file paths of the images.
+- Shuffle the file paths (this was done before reading in the images because the images could not all be read into memory at once).
+- Split the file paths into training and validation sets.
+- Read in the images in batches small enough for working memory to handle.
+- Use the filepath to assign a label to each image: 1 for snow, 0 for clear.
+- Resize the images to all have size 640x640 pixels.  To avoid stretching the images, a buffer was added as necessary.
 
-### Conclusions and Recommendations ###
+### Training and Evaluating the Neural Nets ###
 
+In all, two convolutional neural nets were fit to the data.  They were evaluated based on precision, recall, f1 score, and accuracy.  Both neural nets performed very well, achieving scores of over 98% on all metrics.  The second model was capable of a score of 99.5% on all three metrics simultaneously.  The models could be easily tuned after fitting to increase either precision or recall at the expense of very little accuracy by adjusting the threshold for classifying an image as having snow.
+
+### Streamlit App ###
+
+A streamlit app was written that is capable of using one of the saved models to make a prediction on an image uploaded by a user.  The image can be of several different types or sizes.  It will be converted as needed before being passed to the model.
+
+### Conclusions and Future Directions ###
+
+Overall, the models were very successful.  A simultaneous score of 99.5% on precision, recall, and accuracy, while also being tunable to increase either precision or recall further and minimal cost to accuracy, makes the second model especially well-suited to the task of identifying falling snow in images.  The model was small enough, and performed predictions quickly enough, to be used in a local streamlit app.
+
+There are several possibilities for future directions with this project:
+- Although the synthetic data used is excellent for training the model, as the model has no way to fit on features of the images other than the presence or absence of snow, more testing on real images is advisable.
+- In-depth analysis of the failure cases could be very helpful for understanding the limitations of the model.
+- These models are slightly underfit and have the potential to achieve even better results.  Optimization methods, such as transfer learning, pruning, and quantization, may also be useful for future applications that demand very quick predictions and/or a more complex model.
+- The streamlit app that identifies falling snow in a single image can be expanded upon to achieve the ultimate goal of predicting on live webcam feeds.  If necessary, the model may be adapted to a more sophisticated one, such as YOLO.
+- Finally, this project can be taken beyond snow detection.  Prior work in this area includes removal of snow from images using a Generative Adversarial Network, which was the original use for the dataset I used for this project.
