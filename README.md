@@ -2,14 +2,16 @@
 
 According to the [U. S. Department of Transportation](https://ops.fhwa.dot.gov/weather/q1_roadimpact.htm), 4% of vehicle crashes in the US are snow-related.  This is quite a significant number, especially considering that snow is seasonal and only common in certain parts of the country.
 
-The goal of this project is to design neural nets capable of automatically detecting falling snow in images.  This is a field with some existing work. [This paper](https://ieeexplore.ieee.org/document/9119079) and [this company](http://vizzion.com/road-conditions.html) are particularly relevant.  Other related work includes [removal of snow from images](https://sites.google.com/view/yunfuliu/desnownet) and [object detection in poor weather](https://www.kaggle.com/aalborguniversity/aau-rainsnow). The focus here is on identification of snow in images, with removal of snow from those images as a possible future direction.
-
-This work can be of particular interest to:
+In this project, neural nets are trained that are capable of automatically detecting falling snow in images.  The ultimate goal is to use neural nets such as these to automatically detect falling snow in live webcam feeds.  This work could be of particular interest to:
 - Emergency and transportation personnel, who can use automated snowfall detection to monitor weather conditions on a highly localized level.
 - Navigation apps, which can give notifications of weather ahead.
 - Ski resorts, which can easily monitor new snowfall on individual ski runs.
 
+### Executive Summary ###
+
 In this project, a Tensorflow pipeline is built that is capable of training convolutional neural nets using 100,000 images with or without falling snow.  See below for details on the source of the data.  The process is carried out on a personal computer with a CUDA-enabled GPU.  The models are evaluated according to precision, recall, f1 score, and accuracy.  Multiple snow classification thresholds are considered to optimize and tune the model to maximize the desired metric.  Finally, a streamlit app is built that can run locally and use one of the saved models to predict whether an uploaded image has falling snow.
+
+This is a field with some existing work. [This paper](https://ieeexplore.ieee.org/document/9119079) and [this company](http://vizzion.com/road-conditions.html) are particularly relevant.  Other related work includes [removal of snow from images](https://sites.google.com/view/yunfuliu/desnownet) and [object detection in poor weather](https://www.kaggle.com/aalborguniversity/aau-rainsnow). The focus here is on identification of snow in images, with removal of snow from those images as a possible future direction.
 
 ### Structure of this Repo ###
 
@@ -47,3 +49,4 @@ At the above website, click the link "Training set."  Save the ground truth (gt)
 ### Classficiation ###
 
 ### Conclusions and Recommendations ###
+
