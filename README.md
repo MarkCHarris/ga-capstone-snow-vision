@@ -64,7 +64,7 @@ A streamlit app was written that is capable of using one of the saved models to 
 
 ### Conclusions and Future Directions ###
 
-Overall, the models were very successful.  A simultaneous score of 99.5% on precision, recall, and accuracy, while also being tunable to increase either precision or recall further and minimal cost to accuracy, makes the second model especially well-suited to the task of identifying falling snow in images.  The model was small enough, and performed predictions quickly enough, to be used in a local streamlit app.
+Overall, the models were very successful.  A simultaneous score of 99.5% on precision, recall, and accuracy, while also being tunable to increase either precision or recall further at minimal cost to accuracy, makes the second model especially well-suited to the task of identifying falling snow in images.  The model was small enough, and performed predictions quickly enough, to be used in a local streamlit app.
 
 There are several possibilities for future directions with this project:
 - Although the synthetic data used is excellent for training the model, as the model has no way to fit on features of the images other than the presence or absence of snow, more testing on real images is advisable.
