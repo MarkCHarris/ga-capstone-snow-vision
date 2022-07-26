@@ -44,7 +44,7 @@ def predict_and_show(image_bytes, snow_cutoff):
     image_array = image_array[np.newaxis, :]
 
     # Load the trained model.
-    model = load_model(f'../saved_models/model2')
+    model = load_model(f'../saved_models/test_model/trained_model.pickle')
 
     # Use trained model to predict presence or absence of snow.
     prediction = model.predict(image_array)[0][0]
@@ -68,7 +68,7 @@ def main():
     st.write('Also see my [portfolio](https://markcharris.github.io).')
     st.write('The data used to train this neural net is from [here](https://sites.google.com/view/yunfuliu/desnownet).')
     
-    snow_cutoff = 0.55
+    snow_cutoff = 0.5
     
     # Prompt user to upload an image and return it.
     image_bytes = read_file()
