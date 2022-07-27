@@ -44,7 +44,7 @@ def predict_and_show(image_bytes, snow_cutoff):
     image_array = image_array[np.newaxis, :]
 
     # Load the trained model.
-    model = load_model(f'../saved_models/test_model/trained_model.pickle')
+    model = load_model(f'../saved_models/model1/trained_model.pickle')
 
     # Use trained model to predict presence or absence of snow.
     prediction = model.predict(image_array)[0][0]
